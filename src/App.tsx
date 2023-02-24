@@ -9,7 +9,7 @@ import MedicalInfo from "./pages/medical/info";
 import ArticleCategories from "./pages/articles/categories";
 import ArticleInfo from "./pages/articles/info";
 
-const App: React.FC = () => {
+const App = () => {
     return (
     <MyLayout>
         <Routes>
