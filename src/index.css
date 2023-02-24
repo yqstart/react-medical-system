@@ -19,3 +19,7 @@
 .ant-layout-sider {
     background: #fff !important;
 }
+
+.avatar-uploader .ant-upload {
+    width: 100% !important;
+}

@@ -8,7 +8,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Breadcrumb, Dropdown, Layout, Menu, message, theme } from "antd";
-import logo from "../assets/logo/log.png";
+import logo from "../assets/logo/logo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
@@ -184,7 +184,7 @@ const MyLayout = ({ children }: any) => {
             background: colorBgContainer,
           }}
         >
-          <Breadcrumb>
+          <Breadcrumb style={{ marginBottom: '16px'}}>
             {breadcrumb.map((item: any) => (
               <Breadcrumb.Item key={item.key}>{item.label}</Breadcrumb.Item>
             ))}

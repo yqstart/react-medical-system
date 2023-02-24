@@ -1,7 +1,9 @@
 import React from "react";
 import {Button, Card, Col, Form, Input, message, Row} from "antd";
-import logo from "../assets/logo/log.png";
+import logo from "../assets/logo/logo.png";
 import { useNavigate } from "react-router-dom";
+import {loginApi} from "../services/auth";
+import {setToken} from "../utils/tool";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,10 +17,18 @@ const Login = () => {
         <Card title="好大夫管理平台">
           <Form
             labelCol={{ md: { span: 4 } }}
-            onFinish={(event) => {
+            onFinish={async (event) => {
               console.log(event);
-              navigate('/admin/dashboard')
+              const res = await loginApi(event)
+              console.log(res)
+              if(res.success) {
+                setToken(res.data)
+                navigate('/admin/dashboard')
                 message.success('登录成功！')
+              } else {
+                message.error(res.message)
+              }
+
             }}
           >
             <Form.Item
