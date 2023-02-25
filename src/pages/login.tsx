@@ -1,9 +1,9 @@
 import React from "react";
-import {Button, Card, Col, Form, Input, message, Row} from "antd";
+import { Button, Card, Col, Form, Input, message, Row } from "antd";
 import logo from "../assets/logo/logo.png";
 import { useNavigate } from "react-router-dom";
-import {loginApi} from "../services/auth";
-import {setToken} from "../utils/tool";
+import { loginApi } from "../services/auth";
+import { setToken } from "../utils/tool";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -19,21 +19,21 @@ const Login = () => {
             labelCol={{ md: { span: 4 } }}
             onFinish={async (event) => {
               console.log(event);
-              const res = await loginApi(event)
-              console.log(res)
-              if(res.success) {
-                setToken(res.data)
-                navigate('/admin/dashboard')
-                message.success('登录成功！')
-              } else {
-                message.error(res.message)
-              }
-
+              navigate("/admin/dashboard");
+              // const res = await loginApi(event);
+              // console.log(res);
+              // if (res.success) {
+              //   setToken(res.data);
+              //   navigate("/admin/dashboard");
+              //   message.success("登录成功！");
+              // } else {
+              //   message.error(res.message);
+              // }
             }}
           >
             <Form.Item
               label="用户名"
-              name='userName'
+              name="userName"
               rules={[
                 {
                   required: true,
@@ -45,7 +45,7 @@ const Login = () => {
             </Form.Item>
             <Form.Item
               label="密码"
-              name='password'
+              name="password"
               rules={[
                 {
                   required: true,
